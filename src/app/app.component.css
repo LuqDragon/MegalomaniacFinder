@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horizontal-nav-list a {
+  margin-right: 10px;
+}
+
+.megalomaniac-icon {
+  height: 1em;
+}
+
+h1 {
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 0%;
+  margin: 10px;
+}

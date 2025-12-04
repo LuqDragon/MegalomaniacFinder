@@ -1,0 +1,40 @@
+<main class="main">
+  <h1>
+    <img class="megalomaniac-icon" src="./assets/megalomaniac_icon.png" />
+    Megalomaniac
+    <img class="megalomaniac-icon" src="./assets/megalomaniac_icon.png" />
+    <br />Finder
+  </h1>
+  <mat-form-field>
+    <mat-label>Notable</mat-label>
+    <input
+      #input
+      type="text"
+      placeholder="Pick one"
+      matInput
+      [matAutocomplete]="auto"
+      (input)="filter()"
+      (focus)="filter()"
+      [disabled]="notables.length == 0"
+    />
+    <mat-autocomplete
+      requireSelection
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+      (optionSelected)="onOptionSelected($event)"
+      [displayWith]="displayFn"
+    >
+      @for (notable of filteredNotables; track notable.statId) {
+      <mat-option [value]="notable">{{ notable.name }}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-nav-list class="horizontal-nav-list">
+    @for (link of tradeLinks; track link) {
+    <a mat-raised-button href="{{ link }}" target="_blank">
+      Trade {{ $index + 1 }}
+      <mat-icon>open_in_new</mat-icon>
+    </a>
+    }
+  </mat-nav-list>
+</main>
